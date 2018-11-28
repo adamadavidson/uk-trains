@@ -3,6 +3,10 @@ A tiny NodeJS wrapper for the National Rail SOAP api, requiring only node-soap.
 
 The National Rail SOAP api is pretty nasty to get your head around for someone used to a RESTful architecture.  This wrapper aims to simplify the experience using callbacks and json.
 
+**This fork** makes the following changes to the orginal:
+1. Updates the Darwin version to the most recent; and
+2. Returns all results from Darwin, and not just the `trainServices` object.
+
 ## Usage
 
 Go to `http://realtime.nationalrail.co.uk/OpenLDBWSRegistration/` and register for an api key.
