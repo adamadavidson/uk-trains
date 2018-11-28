@@ -1,7 +1,7 @@
 var soap = require('soap'); 
 
 function ukTrains(token) {
-  var url = 'https://lite.realtime.nationalrail.co.uk/OpenLDBWS/wsdl.aspx?ver=2016-02-16';
+  var url = 'https://lite.realtime.nationalrail.co.uk/OpenLDBWS/wsdl.aspx?ver=2017-10-01';
   var soapHeader = { AccessToken: { TokenValue: token } };
 
   var nationalRail = {
@@ -95,7 +95,8 @@ function ukTrains(token) {
       return client[operation](args, function(err, result) {
 
         if (operation !== 'GetServiceDetails') {
-          callback(result.GetStationBoardResult.trainServices.service);
+          //callback(result.GetStationBoardResult.trainServices.service); //Returns only train services
+          callback(result.GetStationBoardResult); //Returns all Darwin output, including any NRCC messages
         } else {
           callback(result.GetServiceDetailsResult);
         }
